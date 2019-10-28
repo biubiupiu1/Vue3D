@@ -1,26 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store'
-import i18n from './i18n' // load i18n
-import './utils'
+// import Vue3D from '../publish'
+// CSS
+import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+// Vue preset
+// Vue.use(Vue3D, {debug: false})
 
-// load css
-import 'animate.css'
+Vue.config.productionTip = false
 
-i18n.SetLocale('zhcn');
-
-Vue.use(ElementUI);
-
-/* Config */
-Vue.config.productionTip = false;
-
-window.vm = new Vue({
-    router,
-    store,
-    render: h => h(App)
-});
-vm.$mount("#app");
+new Vue({
+    render: h => h(App),
+}).$mount('#app')

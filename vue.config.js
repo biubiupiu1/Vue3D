@@ -1,21 +1,17 @@
+const webpack = require('./webpack.config.js')
 module.exports = {
-    baseUrl: './',
+    publicPath: './',
 
-    configureWebpack: {
-        module: {
-            rules: [
-                {
-                    test: /\.yml$/,
-                    loaders: ['json-loader', 'yaml-loader']
-                }
-            ]
+    devServer: {
+        open: process.platform === 'darwin',
+        host: '0.0.0.0',
+        port: 8000,
+        https: false,
+        hotOnly: false,
+        proxy: null,
+        before: app => {
         }
     },
 
-    outputDir: undefined,
-    assetsDir: undefined,
-    runtimeCompiler: true,
-    productionSourceMap: undefined,
-    parallel: undefined,
-    css: undefined
+    configureWebpack: webpack,
 }
